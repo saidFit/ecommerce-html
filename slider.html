@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         .slide {
+            
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            /* transition: all 1s; */
+
+        }
+        img{
+            width: 100%;
+            height: 100%; 
+        }
+
+        section {
+            margin-top: 60px !important;
+            display: flex;
+            border: 3px solid ;
+            height: 50vh;
+            width: fit-content;
+            margin: 0 auto;
+            text-align: center;
+            overflow: hidden;
+            transition: all 1s;
+        }
+
+        div {
+            /* border: 1px solid; */
+            width: 20rem;
+            margin: 0 auto;
+            text-align: center;
+            /* transition: all 1s; */
+
+        }
+        .divAll{
+            display: flex;
+            position: relative;
+            /* transition: all 1s; */
+        }
+
+        /* .active {
+            z-index: 2;
+            transform: translateX(-50%) !important;
+        } */
+        /* body > section > div >div :nth-child(1){
+            border:1px solid red;
+            left:0%
+        }
+        body > section > div > :nth-child(2){
+            border:1px solid green;
+            left:150%;
+        }
+        body > section > div > :nth-child(3){
+            left:250%;
+        }
+        body > section > div > :nth-child(4){
+            left:350%;
+        } */
+        body > section > div{
+            transition: all 1s;
+             transform: translateX(0%);
+         }
+         .active{
+            
+            background-color: rgb(40 36 36 / 81%)
+         }
+         .active section{
+             border-color:red;
+         }
+         body{
+            transition: all .8s;
+         }
+    </style>
+</head>
+
+<body id="body">
+    <button id="ChangeBackground">
+        Chanage-Background
+    </button>
+    <!-- slider -->
+    <section>
+    <div class="divAll">
+        <div class="slide">
+        <img class="image " src="/f7.jpg" alt="">
+        </div>
+
+        <div class="slide">
+        <img class="image " src="/f1.jpg" alt="">
+        </div>
+
+        <div class="slide">
+        <img class="image " src="/E6RoIszXIAEkkm3.webp" alt="">
+        </div>
+
+        <div class="slide">
+        <img class="image" src="/f6.jpg" alt="">
+       </div>
+    
+    </section>
+    </div>
+    <div>
+        <button id="pre">Pre</button>
+        <button id="next">Next</button>
+    </div>
+    
+    <script>
+      
+
+
+      const div = document.querySelector(' body > section > div')
+      let i=0
+      const Alldive = document.querySelectorAll('.slide')
+      let indo=50
+      for(let i=0 ;i<Alldive.length;i++){
+          console.log(indo)
+          console.log(i)
+         console.log (Alldive[i])
+        Alldive[i].style.left=`${indo}%`
+          indo=indo+100
+          console.log(indo)
+      }
+      
+      next.addEventListener('click',(eo)=>{
+          
+          i=i-100;
+          console.log(i)
+          if(i==-300){
+              console.log(true)
+              
+            //   i=0
+          }
+         div.style.transform=`translate(${i}%)`
+      })
+
+        pre.addEventListener('click',(eo)=>{
+            i=i+100
+            console.log(i)
+            div.style.transform=`translate(${i}%)`
+        })
+        window.addEventListener('load',(eo)=>{
+            ChangeBackground.addEventListener('click',(eo)=>{
+             body.classList.toggle('active')
+        })
+        })
+       
+    </script>
+</body>
+
+</html>
